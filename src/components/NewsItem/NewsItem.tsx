@@ -1,7 +1,6 @@
 import { FC } from "react"
 import formatData from "../Helpers/formateData"
 import formatTimeAgo from "../Helpers/formatTimeAgo"
-import Image from "../Image/Image"
 import styles from "./NewsItem.module.css"
 
 interface INewsBanner {
