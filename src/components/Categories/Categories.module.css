@@ -1,0 +1,31 @@
+.categories {
+	display: flex;
+	width: 100%;
+	gap: 8px;
+	align-items: flex-start;
+	box-sizing: border-box;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	white-space: nowrap;
+	/* scrollbar-width: none; */
+}
+
+.item,
+.active {
+	display: flex;
+	align-items: center;
+	padding: 8px 16px;
+	border-radius: 32px;
+	background-color: #f3f4f5;
+	cursor: pointer;
+	border: none;
+}
+
+.active {
+	background-color: #e7e7ff;
+	color: #6b4eff;
+}
+
+/* .categories::-webkit-scrollbar {
+	display: none;
+} */

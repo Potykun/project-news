@@ -10,8 +10,6 @@ interface IPagination {
 }
 
 const Pagination: FC<IPagination> = ({ totalPages, handleNextPage, handlePrevPage, currentPage, handleGoToPage }) => {
-	console.log(currentPage)
-
 	return (
 		<div className={styles.pagination}>
 			<button
