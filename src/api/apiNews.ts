@@ -14,12 +14,19 @@ export interface INews {
 	url: string
 	language: string
 }
+export interface IGetNews {
+	news: INews[]
+	page_number: number
+	page_size: number
+}
 
-export const getNews = async (): Promise<{ news: INews[] }> => {
+export const getNews = async (page_number = 1, page_size = 10): Promise<IGetNews> => {
 	try {
-		const response = await axios.get(`${BASE_URL}latest-news`, {
+		const response = await axios.get(`${BASE_URL}search`, {
 			params: {
 				apiKey: API_KEY,
+				page_number,
+				page_size,
 			},
 		})
 		return response.data
