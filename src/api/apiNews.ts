@@ -20,9 +20,10 @@ export interface IGetNews {
 	page_number: number
 	page_size: number
 	category: string[] | null | string
+	keywords?: string
 }
 
-export const getNews = async ({ page_number = 1, page_size = 10, category }: IGetNews): Promise<IGetNews> => {
+export const getNews = async ({ page_number = 1, page_size = 10, category, keywords }: IGetNews): Promise<IGetNews> => {
 	try {
 		const response = await axios.get(`${BASE_URL}search`, {
 			params: {
@@ -30,6 +31,7 @@ export const getNews = async ({ page_number = 1, page_size = 10, category }: IGe
 				page_number,
 				page_size,
 				category,
+				keywords,
 			},
 		})
 		return response.data as IGetNews
