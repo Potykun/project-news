@@ -3,6 +3,7 @@ import formatData from "../Helpers/formateData"
 import formatTimeAgo from "../Helpers/formatTimeAgo"
 import Image from "../Image/Image"
 import styles from "./NewsBanner.module.css"
+import withSkeleton from "../Helpers/hocs/withSkeleton"
 
 interface INewsBanner {
 	author: string
@@ -22,7 +23,7 @@ type NewsBannerProps = {
 
 const NewsBanner: FC<NewsBannerProps> = ({ item }) => {
 	if (!item) {
-		return <div>No data available</div> // Обработка случая, если данных нет
+		return <div>No data available</div>
 	}
 
 	const publishedDate = item.published ? formatTimeAgo(formatData(item.published)) : "Unknown date"
@@ -41,4 +42,6 @@ const NewsBanner: FC<NewsBannerProps> = ({ item }) => {
 	)
 }
 
-export default NewsBanner
+const NewsBannerWithSkeleton = withSkeleton(NewsBanner, "banner", 1)
+
+export default NewsBannerWithSkeleton
